@@ -55,6 +55,7 @@ alias ls='ls --color'
 alias ll='ls -alF --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
+alias nvim.='nvim ~/dotfiles/'
 
 # Environment Variables
 export PATH="$HOME/bin:$PATH"
@@ -68,6 +69,7 @@ alias code="\"/mnt/e/Program Files/Microsoft VS Code/Code.exe\""
 
 export NVIM_ROOT=/opt/nvim-linux64/bin
 export PATH=$NVIM_ROOT:$PATH
+export PATH=/mnt/c/Users/danie/Programming/odin/:$PATH
 
 # MAC ONLY
 # eval "$(/opt/homebrew/bin/brew shellenv)"
