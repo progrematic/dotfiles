@@ -61,9 +61,11 @@ export PATH="$HOME/bin:$PATH"
 export VS_BUILD_PATH="\"/mnt/c/Program Files/Microsoft Visual Studio/2022/Community/Msbuild/Current/Bin/MSBuild.exe\""
 
 alias cdp="cd /mnt/c/Users/danie/Programming"
-alias cli="./cli.sh"
 alias open="explorer.exe"
-
+alias kr="./kr.sh"
+alias cli="./cli.sh"
+alias krdir="cd ~/Programming/krypton2"
+alias hpdir="cd ~/Programming/hippo"
 alias code="\"/mnt/e/Program Files/Microsoft VS Code/Code.exe\""
 
 export NVIM_ROOT=/opt/nvim-linux64/bin
