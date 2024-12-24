@@ -560,6 +560,16 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        ols = {
+          init_options = {
+            checker_args = '-strict-style',
+            collections = {
+              { name = 'core', path = vim.fn.expand '/mnt/c/Users/danie/Programming/odin/core' },
+              { name = 'vendor', path = vim.fn.expand '/mnt/c/Users/danie/Programming/odin/vendor' },
+              { name = 'shared', path = vim.fn.expand '/mnt/c/Users/danie/Programming/odin/shared' },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
