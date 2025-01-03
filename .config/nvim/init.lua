@@ -236,6 +236,16 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  {
+    'voldikss/vim-floaterm',
+    config = function()
+      vim.keymap.set('n', '<leader>tt', '<cmd>:FloatermNew<CR>')
+      vim.keymap.set('n', '<leader>tj', '<cmd>:FloatermNext<CR>')
+      vim.keymap.set('n', '<leader>tk', '<cmd>:FloatermPrev<CR>')
+      vim.keymap.set('n', '<leader>th', '<cmd>:FloatermToggle<CR>')
+      vim.keymap.set('n', '<leader>tq', '<cmd>:FloatermKill<CR>')
+    end,
+  },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
