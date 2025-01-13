@@ -246,6 +246,20 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>tq', '<cmd>:FloatermKill<CR>')
     end,
   },
+  {
+      'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {
+          view_options = {
+                -- Show files and directories that start with "."
+                show_hidden = true,
+              }
+        },
+        -- Optional dependencies
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
