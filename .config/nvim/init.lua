@@ -571,6 +571,8 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local OS = vim.loop.os_uname().sysname
+      local OdinRoot = OS == 'Windows' and '/mnt/c/Users/danie/Programming/odin/' or '~/Programming/odin/'
       local servers = {
         clangd = {},
         -- gopls = {},
@@ -588,9 +590,9 @@ require('lazy').setup({
           init_options = {
             checker_args = '-strict-style',
             collections = {
-              { name = 'core', path = vim.fn.expand '/mnt/c/Users/danie/Programming/odin/core' },
-              { name = 'vendor', path = vim.fn.expand '/mnt/c/Users/danie/Programming/odin/vendor' },
-              { name = 'shared', path = vim.fn.expand '/mnt/c/Users/danie/Programming/odin/shared' },
+              { name = 'core', path = vim.fn.expand(OdinRoot .. 'core') },
+              { name = 'vendor', path = vim.fn.expand(OdinRoot .. 'vendor') },
+              { name = 'shared', path = vim.fn.expand(OdinRoot .. 'shared') },
             },
           },
         },
