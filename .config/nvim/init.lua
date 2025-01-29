@@ -84,6 +84,13 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+local uname = vim.loop.os_uname()
+_G.OS = uname.sysname
+_G.IS_MAC = OS == 'Darwin'
+_G.IS_LINUX = OS == 'Linux'
+_G.IS_WINDOWS = OS:find 'Windows' and true or false
+_G.IS_WSL = IS_LINUX and uname.release:lower():find 'microsoft' and true or false
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -572,8 +579,7 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-      local OS = vim.loop.os_uname().sysname
-      local OdinRoot = OS == 'Windows' and '/mnt/c/Users/danie/Programming/odin/' or '~/Programming/odin/'
+      local OdinRoot = _G.IS_WSL and '/mnt/c/Users/danie/Programming/odin/' or '~/Programming/odin/'
       local servers = {
         clangd = {},
         -- gopls = {},
