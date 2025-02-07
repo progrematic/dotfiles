@@ -208,6 +208,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Make beginning and end of line easier to use, since I don't use WORD jumping
 vim.keymap.set('n', 'B', '^', { noremap = true, silent = true })
 vim.keymap.set('n', 'E', '$', { noremap = true, silent = true })
+
+-- Easily split buffers within nvim
+vim.keymap.set('n', '<leader>vb', ':ls<CR>:vsp #', { noremap = true })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
