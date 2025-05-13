@@ -340,7 +340,12 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
+        defaults = {
+          path_display = function(opts, path)
+            local tail = require('telescope.utils').path_tail(path)
+            return string.format('%s (%s)', tail, path)
+          end,
+        },
         --   mappings = {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
@@ -364,7 +369,7 @@ require('lazy').setup({
       vim.keymap.set(
         'n',
         '<leader>sf',
-        "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }, path_display = {'truncate'} })<cr>",
+        "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' } })<cr>",
         { desc = '[S]earch [F]iles' }
       )
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
