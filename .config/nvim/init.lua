@@ -364,7 +364,7 @@ require('lazy').setup({
       vim.keymap.set(
         'n',
         '<leader>sf',
-        "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+        "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }, path_display = {'truncate'} })<cr>",
         { desc = '[S]earch [F]iles' }
       )
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
