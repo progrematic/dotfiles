@@ -59,22 +59,41 @@ alias nvim.='nvim ~/dotfiles/'
 
 # Environment Variables
 export PATH="$HOME/bin:$PATH"
-export VS_BUILD_PATH="\"/mnt/c/Program Files/Microsoft Visual Studio/2022/Community/Msbuild/Current/Bin/MSBuild.exe\""
+export VS_BUILD_PATH="/mnt/c/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/MSBuild.exe"
 
-alias cdp="cd /mnt/c/Users/danie/Programming"
-alias open="explorer.exe"
-alias kr="./kr.sh"
 alias cli="./cli.sh"
-alias krdir="cd ~/Programming/krypton2"
-alias hpdir="cd ~/Programming/hippo"
-alias code="\"/mnt/e/Program Files/Microsoft VS Code/Code.exe\""
 
-export NVIM_ROOT=/opt/nvim-linux64/bin
-export PATH=$NVIM_ROOT:$PATH
-export PATH=/mnt/c/Users/danie/Programming/odin/:$PATH
+export PATH=~/.local/bin/:$PATH
+export PATH=/mnt/d/Programming/odin/:$PATH
 
-# MAC ONLY
-# eval "$(/opt/homebrew/bin/brew shellenv)"
+export AWS_PROFILE=gamekit-next-aq-prod-aws-bedrock-136172187201
+export AWS_REGION=us-east-1
+export CLAUDE_CODE_USE_BEDROCK=1
+
+# Platform-specific setup
+case "$OSTYPE" in
+  darwin*)
+    # macOS
+    alias cdp="cd ~/Programming"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    ;;
+  linux*)
+    # Linux
+    if grep -qi microsoft /proc/version 2>/dev/null; then
+      # Linux on WSL
+      alias cdp="cd /mnt/d/Programming"
+      alias open="explorer.exe"
+      alias codew="/mnt/c/Users/Daniel/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
+    else
+      # Native Linux
+    fi
+    ;;
+  msys*|cygwin*|win32*)
+    # Windows (MSYS/Cygwin)
+    ;;
+esac
+
+#alias code.="code . > /dev/null 2>&1 &!"
 
 # Oh-My-Posh setup
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
