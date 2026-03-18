@@ -73,7 +73,7 @@ case "$OSTYPE" in
   darwin*)
     # macOS
     alias cdp="cd ~/Programming"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    #eval "$(/opt/homebrew/bin/brew shellenv)"
     ;;
   linux*)
     # Linux
