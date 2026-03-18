@@ -1,0 +1,3 @@
+export AWS_PROFILE=gamekit-next-aq-prod-aws-bedrock-136172187201
+export AWS_REGION=us-east-1
+export CLAUDE_CODE_USE_BEDROCK=1
