@@ -1,0 +1,15 @@
+-- Hyprland default apps
+
+TERMINAL = "kitty"
+FILE_MANAGER = "dolphin"
+BROWSER = "google-chrome-stable"
+CALCULATOR = "gnome-calculator"
+
+-- Monitors
+MONITOR1 = "DP-2"
+MONITOR2 = "HDMI-A-1"
+MONITOR3 = ""
+PRIMARY_MONITOR = MONITOR1
+
+-- Workspaces
+NUM_WPM = 3 -- Number of workspaces per monitor (Max 10)
