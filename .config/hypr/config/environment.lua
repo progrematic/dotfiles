@@ -8,3 +8,9 @@
 -- hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia") -- force GBM as a backend
 -- hl.env("LIBVA_DRIVER_NAME", "nvidia") -- Hardware acceleration on NVIDIA GPUs
 -- hl.env("__GL_GSYNC_ALLOWED", "1") -- Controls if G-Sync capable monitors should use Variable Refresh Rate (VRR)
+
+if IS_MACBOOK then
+	-- Force Steam and similar toolkits to scale their UI text up on HiDPI displays
+	hl.env("STEAM_FORCE_DESKTOPUI_SCALING", "2")
+	hl.env("GDK_SCALE", "2")
+end

@@ -7,18 +7,27 @@
 --     scale     = "1",
 -- })
 
-hl.monitor({
-	output = PRIMARY_MONITOR,
-	mode = "highres",
-	position = "0x0",
-	scale = "auto",
-})
+if IS_MACBOOK then
+	hl.monitor({
+		output = PRIMARY_MONITOR,
+		mode = "highres",
+		position = "auto",
+		scale = "1.5",
+	})
+else
+	hl.monitor({
+		output = PRIMARY_MONITOR,
+		mode = "highres",
+		position = "0x0",
+		scale = "auto",
+	})
 
-hl.monitor({
-	output = MONITOR2,
-	mode = "preferred",
-	--	position = "5120x200",
-	position = "auto-center-right",
-	scale = "auto",
-	transform = 3,
-})
+	hl.monitor({
+		output = MONITOR2,
+		mode = "preferred",
+		--	position = "5120x200",
+		position = "auto-center-right",
+		scale = "auto",
+		transform = 3,
+	})
+end

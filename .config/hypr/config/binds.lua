@@ -106,8 +106,34 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd(noctCall .. "media next"), { locked = t
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(noctCall .. "media previous"), { locked = true })
 
 -- Brightness
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctCall .. "brightness-up"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"), { locked = true, repeating = true })
+if IS_MACBOOK then
+	-- Display / Screen Brightness
+	hl.bind(
+		"XF86MonBrightnessUp",
+		hl.dsp.exec_cmd("brightnessctl set +10%"),
+		{ device = "apple-inc.-touch-bar-display", repeat_key = true, locked = true }
+	)
+	hl.bind(
+		"XF86MonBrightnessDown",
+		hl.dsp.exec_cmd("brightnessctl set 10%-"),
+		{ device = "apple-inc.-touch-bar-display", repeat_key = true, locked = true }
+	)
+
+	-- Keyboard Backlight Brightness
+	hl.bind(
+		"XF86KbdBrightnessUp",
+		hl.dsp.exec_cmd("brightnessctl -d '*kbd_backlight' set +10%"),
+		{ device = "apple-inc.-touch-bar-display", repeat_key = true, locked = true }
+	)
+	hl.bind(
+		"XF86KbdBrightnessDown",
+		hl.dsp.exec_cmd("brightnessctl -d '*kbd_backlight' set 10%-"),
+		{ device = "apple-inc.-touch-bar-display", repeat_key = true, locked = true }
+	)
+else
+	hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctCall .. "brightness-up"), { locked = true, repeating = true })
+	hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"), { locked = true, repeating = true })
+end
 
 -------------------
 ---- UTILITIES ----
