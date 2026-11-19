@@ -14,4 +14,7 @@ require("config.windowrules")
 require("config.workspaces")
 
 -- Customs
---require("config.windows")
+require("config.windows")
+
+-- HyprMod managed settings
+require("hyprland-gui")

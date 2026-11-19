@@ -132,7 +132,11 @@ if IS_MACBOOK then
 	)
 else
 	hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctCall .. "brightness-up"), { locked = true, repeating = true })
-	hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"), { locked = true, repeating = true })
+	hl.bind(
+		"XF86MonBrightnessDown",
+		hl.dsp.exec_cmd(noctCall .. "brightness-down"),
+		{ locked = true, repeating = true }
+	)
 end
 
 -------------------
@@ -151,7 +155,7 @@ hl.bind(
 --
 -- Screen Capture
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a -n"))
-hl.bind("Print", hl.dsp.exec_cmd(noctCall .. "screenshot-region"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(noctCall .. "screenshot-region"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"))
 
 -- Theming and Wallpaper
@@ -181,3 +185,15 @@ hl.bind(mainMod .. " + CONTROL + J", hl.dsp.focus({ workspace = "emptym" }))
 -- Special workspace (scratchpad)
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.window.move({ workspace = "special", follow = false }))
 hl.bind(mainMod .. " + M", hl.dsp.workspace.toggle_special())
+
+-- Quick reset macro for DP-2 PIP handshake issues (Pure Lua/Asynchronous)
+hl.bind(mainMod .. " + SHIFT + P", function()
+	-- 1. Disable the monitor natively
+	hl.monitor({ output = "DP-2", disabled = true })
+
+	-- 2. Wait 0.5 seconds asynchronously using a native Hyprland timer
+	hl.timer(function()
+		-- 3. Re-enable the monitor natively
+		hl.monitor({ output = "DP-2", disabled = false })
+	end, { timeout = 500, type = "oneshot" })
+end)

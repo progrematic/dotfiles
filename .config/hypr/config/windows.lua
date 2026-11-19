@@ -23,3 +23,13 @@ hl.window_rule({
 })
 -- ]]
 --
+hl.window_rule({
+	name = "waydroid-sideswipe-landscape",
+	match = {
+		class = "^[Ww]aydroid.*$", -- Captures both 'waydroid' and 'Waydroid'
+	},
+	float = true, -- Force floating layout
+	size = { 1462, 675 },
+	center = true, -- Lock it to the center of your display
+	fullscreen_state = "0 0", -- Blocks Android from overriding and blowing up to fullscreen early
+})
